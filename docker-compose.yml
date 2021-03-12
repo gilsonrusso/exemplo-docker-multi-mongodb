@@ -1,0 +1,38 @@
+version: "3.7"
+services:
+  ms-api-one:
+    image: node:14-alpine
+    container_name: ms-api-one
+    restart: always
+    volumes:
+      - ./ms-api-one:/usr/src/app
+    working_dir: /usr/src/app
+    ports:
+      - "3000:3000"
+    command: yarn dev
+    depends_on:
+      - database-one
+  ms-api-two:
+    image: node:14-alpine
+    container_name: ms-api-two
+    restart: always
+    volumes:
+      - ./ms-api-two:/usr/src/app
+    working_dir: /usr/src/app
+    ports:
+      - "3333:3333"
+    command: yarn dev
+    depends_on:
+      - database-two
+  database-one:
+    image: mongo
+    container_name: database-one
+    restart: always
+    ports: 
+      - 27017:27017
+  database-two:
+    image: mongo
+    container_name: database-two
+    restart: always
+    ports: 
+      - 27018:27018

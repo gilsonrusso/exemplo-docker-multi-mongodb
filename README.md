@@ -1,2 +1,7 @@
 # exemplo-docker-multi-mongodb
-exemplo de como cada serviço pode ter seu próprio banco de dados mongo db.
+## Descrição
+este é um exemplo de como cada microserviço pode ter seu proprio banco de dados
+utilizamos neste exemplo o mongodb.
+
+## start
+    docker-compose up
